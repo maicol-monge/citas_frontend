@@ -23,7 +23,7 @@ const Login = () => {
       });
       return;
     }
-
+console.log(email, password);
     axios
       .post("https://citasbackend-production.up.railway.app/api/usuarios/iniciarSesion", {
         correo: email,
