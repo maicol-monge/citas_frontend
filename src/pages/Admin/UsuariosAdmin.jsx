@@ -28,7 +28,7 @@ const UsuariosAdmin = () => {
 
   const fetchUsuarios = () => {
     axios
-      .get("citasbackend-production.up.railway.app/api/admin/usuarios")
+      .get("https://citasbackend-production.up.railway.app/api/admin/usuarios")
       .then((res) => setUsuarios(res.data))
       .catch(() => setUsuarios([]));
   };
@@ -68,7 +68,7 @@ const UsuariosAdmin = () => {
       if (editId) {
         // Editar usuario (sin contraseña ni rol)
         const { contrasena, rol, ...editData } = form;
-        await axios.put(`citasbackend-production.up.railway.app/api/admin/usuarios/${editId}`, editData);
+        await axios.put(`https://citasbackend-production.up.railway.app/api/admin/usuarios/${editId}`, editData);
         Swal.fire("¡Actualizado!", "Usuario actualizado.", "success");
       } else {
         // Crear solo usuario admin
@@ -76,7 +76,7 @@ const UsuariosAdmin = () => {
           Swal.fire("Error", "Solo puedes crear usuarios con rol admin.", "error");
           return;
         }
-        await axios.post("citasbackend-production.up.railway.app/api/admin/usuarios", form);
+        await axios.post("https://citasbackend-production.up.railway.app/api/admin/usuarios", form);
         Swal.fire("¡Agregado!", "Usuario admin registrado.", "success");
       }
       setForm({
@@ -125,7 +125,7 @@ const UsuariosAdmin = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await axios.delete(`citasbackend-production.up.railway.app/api/admin/usuarios/${id}`);
+          await axios.delete(`https://citasbackend-production.up.railway.app/api/admin/usuarios/${id}`);
           Swal.fire("Eliminado", "Usuario eliminado.", "success");
           fetchUsuarios();
         } catch (err) {
