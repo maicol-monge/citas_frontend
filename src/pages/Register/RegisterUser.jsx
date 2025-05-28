@@ -64,7 +64,7 @@ const RegisterUser = () => {
       }
       // Hacer la solicitud al backend para registrar el usuario
       axios
-        .post("http://localhost:5000/api/usuarios/registrarUsuario", {
+        .post("https://citasfrontend-production.up.railway.app/api/usuarios/registrarUsuario", {
           nombres: name,
           apellidos: lastName,
           direccion: address,
