@@ -25,7 +25,7 @@ const Login = () => {
     }
 
     axios
-      .post("http://localhost:5000/api/usuarios/iniciarSesion", {
+      .post("citasbackend-production.up.railway.app/api/usuarios/iniciarSesion", {
         correo: email,
         contrasena: password,
       })
